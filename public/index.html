@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lora Dataset Manager</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Lora Dataset Manager</h1>
+            <button id="create-dataset-btn">Create New Dataset</button>
+        </header>
+        
+        <main>
+            <div id="dataset-list" class="dataset-list">
+                <!-- Dataset items will be dynamically added here -->
+                <p id="no-datasets-message">No datasets found. Create your first dataset to get started.</p>
+            </div>
+        </main>
+
+        <!-- Modal for creating a new dataset -->
+        <div id="create-modal" class="modal hidden">
+            <div class="modal-content">
+                <span class="close-btn">&times;</span>
+                <h2>Create New Dataset</h2>
+                <form id="create-dataset-form">
+                    <label for="dataset-name">Dataset Name:</label>
+                    <input type="text" id="dataset-name" name="dataset-name" required>
+                    
+                    <button type="submit">Create Dataset</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Modal for uploading assets -->
+        <div id="upload-modal" class="modal hidden">
+            <div class="modal-content">
+                <span class="close-btn">&times;</span>
+                <h2>Upload Assets to Dataset</h2>
+                
+                <form id="upload-asset-form">
+                    <label for="asset-file">Select File:</label>
+                    <input type="file" id="asset-file" name="asset-file" required>
+                    
+                    <div class="form-group">
+                        <label for="asset-type">Asset Type:</label>
+                        <select id="asset-type" name="asset-type">
+                            <option value="images">Images</option>
+                            <option value="videos">Videos</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="asset-caption">Caption (optional):</label>
+                        <textarea id="asset-caption" name="asset-caption"></textarea>
+                    </div>
+                    
+                    <button type="submit">Upload Asset</button>
+                </form>
+
+                <hr>
+
+                <h3>Or Upload a Folder</h3>
+                <p>This feature is not yet implemented in the frontend.</p>
+            </div>
+        </div>
+
+        <!-- Toast notification -->
+        <div id="toast" class="toast hidden"></div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
